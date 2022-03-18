@@ -1,23 +1,24 @@
-import logo from './logo.svg';
+import * as React from 'react';
+import { Dropdown, Popup } from './components';
+import { OpenPopup } from './components/styles';
+import data from './components/data';
 import './App.css';
-
 function App() {
+  const [showPopup, setShowPopup] = React.useState(false);
+
+  const renderContent = React.useCallback(() => (
+    <div className='image-holder'>
+      <img className='image' alt='nature' src='https://media.istockphoto.com/photos/mountain-landscape-picture-id517188688?k=20&m=517188688&s=612x612&w=0&h=i38qBm2P-6V4vZVEaMy_TaTEaoCMkYhvLCysE7yJQ5Q=' />
+    </div>
+  ), [])
+
+  const togglePopup = React.useCallback(() => setShowPopup(!showPopup), [showPopup]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Dropdown options={data} />
+      <Popup isVisible={showPopup} content={renderContent()} handleClose={togglePopup} />
+      <OpenPopup type='button' onClick={togglePopup}>Open Popup</OpenPopup>
     </div>
   );
 }
