@@ -19,29 +19,32 @@ export const Box = styled.div`
   position: relative;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: 20px calc(100% - 30px);
+  grid-template-rows: 30px calc(100% - 40px);
   grid-row-gap: 10px;
   width: 70%;
   height: auto;
   max-height: 70vh;
   background: #fff;
   border-radius: 8px;
-  padding: 16px;
   border: none;
   overflow: auto;
   box-sizing: border - box;
 `;
 
 export const PopupHeader = styled.div`
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 20px;
   width: 100%;
-  justify-content: space-between;
+  padding: 4px 12px; 
+  box-sizing: border-box;
+  place-items: center;
+  background: #b2bec3;
 `;
 
 export const CloseButton = styled.button`
   cursor: pointer;
-  border - radius: 10px;
-  background - color: white;
+  border: none;
+  background-color: #b2bec3;
   color: black;
 `;
 

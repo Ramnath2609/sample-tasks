@@ -6,7 +6,7 @@ import { ListItem } from './ListItem';
 export function Dropdown({ options }) {
     const [limit, setLimit] = React.useState(5);
     const [selectedItem, setSelectedItem] = React.useState(null);
-    const listRef = React.createRef();
+    const dropdownRef = React.useRef(null);
     const ref = React.createRef();
     const listItemRef = React.createRef();
     const [headerTitle, setHeaderTitle] = React.useState('Select');
@@ -14,9 +14,7 @@ export function Dropdown({ options }) {
     const toggleList = React.useCallback(() => setIsListOpen(!isListOpen), [isListOpen]);
 
     React.useEffect(() => {
-        if (selectedItem) {
-            listItemRef.current?.scrollIntoView({ behavior: 'smooth' });
-        } else {
+        if (!selectedItem) {
             ref.current?.scrollIntoView({ behavior: 'smooth' });
         }
     }, [listItemRef, ref, selectedItem]);
@@ -31,10 +29,10 @@ export function Dropdown({ options }) {
         setLimit(options.length);
     }, [options.length]);
 
-    console.log('ref', listRef, selectedItem);
+    console.log('ref', dropdownRef, selectedItem);
 
     return (
-        <DropdownWrapper>
+        <DropdownWrapper ref={dropdownRef}>
             <DropdownHeader onClick={toggleList}>
                 <span>{headerTitle}</span>
                 {isListOpen
@@ -42,7 +40,7 @@ export function Dropdown({ options }) {
                     : <FontAwesome name="angle-down" size="2x" />}
             </DropdownHeader>
             {isListOpen && (
-                <DropdownList ref={listRef}>
+                <DropdownList>
                     {options.slice(0, limit).map(option => (
                         <ListItem isSelected={selectedItem === option.title} key={option.id} onChange={onChange} title={option.title} />
                     ))}
