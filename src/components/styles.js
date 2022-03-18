@@ -38,14 +38,15 @@ export const PopupHeader = styled.div`
   padding: 4px 12px; 
   box-sizing: border-box;
   place-items: center;
-  background: #b2bec3;
+  background: #222f3e;
+  color: white;
 `;
 
 export const CloseButton = styled.button`
   cursor: pointer;
   border: none;
-  background-color: #b2bec3;
-  color: black;
+  background-color: #222f3e;
+  color: white;
 `;
 
 export const DropdownWrapper = styled.div`
@@ -119,7 +120,7 @@ export const LoadMoreButton = styled.button`
 `;
 
 export const OpenPopup = styled.button`
-  padding: 8px;
+  padding: 12px;
   background: #0984e3;
   color: white;
   border: none;
