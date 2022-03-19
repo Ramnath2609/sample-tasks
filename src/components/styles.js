@@ -7,12 +7,11 @@ export const PopUpBox = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #00000050;
+  background: rgba(0,0,0,.5);
   width: 100%;
   height: 100%;
-  top: 0;
-  left: 0;
   transition: 0.3s ease-in;
+  z-index: 100;
 `;
 
 export const Box = styled.div`
@@ -21,14 +20,14 @@ export const Box = styled.div`
   grid-template-columns: auto;
   grid-template-rows: 30px calc(100% - 40px);
   grid-row-gap: 10px;
-  width: 70%;
+  max-width: 70%;
   height: auto;
   max-height: 70vh;
   background: #fff;
   border-radius: 8px;
   border: none;
   overflow: auto;
-  box-sizing: border - box;
+  box-sizing: border-box;
 `;
 
 export const PopupHeader = styled.div`
@@ -120,10 +119,14 @@ export const LoadMoreButton = styled.button`
 `;
 
 export const OpenPopup = styled.button`
-  padding: 12px;
+  padding: 14px;
   background: #0984e3;
   color: white;
   border: none;
   cursor: pointer;
   border-radius: 8px;
+  transition: 0.1s ease-in;
+  :hover {
+    transform: scale(1.1);
+  }
 `;

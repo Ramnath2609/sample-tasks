@@ -1,17 +1,17 @@
 import { PopUpBox, PopupHeader, Box, CloseButton } from './styles.js';
 import FontAwesome from 'react-fontawesome';
 
-export function Popup(props) {
+export function Popup({ isVisible, handleClose, content }) {
     return (
-        <PopUpBox isVisible={props.isVisible}>
+        <PopUpBox isVisible={isVisible}>
             <Box>
                 <PopupHeader>
                     <div>Nature</div>
-                    <CloseButton onClick={props.handleClose}>
+                    <CloseButton onClick={handleClose}>
                         <FontAwesome name="close" />
                     </CloseButton>
                 </PopupHeader>
-                {props.content}
+                {content}
             </Box>
         </PopUpBox>
     )

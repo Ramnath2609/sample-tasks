@@ -14,8 +14,8 @@ const AppContainer = styled.div`
 
 const Image = styled.img`
   width: 100%;
-    height: 100%;
-    object-fit: fill;
+  height: 100%;
+  object-fit: fill;
 `;
 
 const ImageHolder = styled.div`
